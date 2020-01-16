@@ -12,6 +12,9 @@ import sys
 import signal
 import os.path
 import textwrap
+import random
+import nnf
+from nnf import Var, Or, And
 
 
 def sanitize(string):
@@ -36,6 +39,7 @@ class New_Game:
         f1, f2 = self.check_files()
         self.init_characters(f1)
         self.init_goals(f2)
+        self.gen_scenario()
 
         # Start game
         for chapter in self.chapter_files:
@@ -170,6 +174,87 @@ class New_Game:
 
         print("... succesfully loaded {} goals...".format(no_goals))
 
+    def gen_scenario(self):
+        """
+        Generates a random Cluedo scenario.
+        """
+        chars = list(self.characters.keys())
+        print(chars)
+        chars.remove('weapon')
+        chars.remove('location')
+
+        killer = chars[random.randint(0, len(chars)-1)]
+        print(killer)
+
+        self.characters[killer].goals['iskiller'] = 1
+        self.characters['weapon'].goals['murderweapon'] = random.randint(1,3)
+        self.characters['location'].goals['murderlocation'] = random.randint(1,3)
+
+    def check_correct(self):
+        var = []
+        chars = list(self.characters.keys())
+        sentence_vals = {x: False for x in chars}
+
+        chars.remove('weapon')
+        chars.remove('location')
+
+        for char in chars:
+            var.append(Var(char))
+
+        weapon = self.characters['weapon'].goals['murderweapon']
+        sus_weapon = self.characters['weapon'].goals['suspectedweapon']
+        location = self.characters['location'].goals['murderlocation']
+        sus_location = self.characters['location'].goals['suspectedlocation']
+
+        for char in chars:
+            if self.characters[char].goals['issuspect'] == 1:
+                sus_killer = char
+            if self.characters[char].goals['iskiller'] == 1:
+                killer = char
+
+        w = Var('weapon')
+        l = Var('location')
+
+        #sentence_list = [And({v, w, l}) for v in var]
+        #sentence = Or(tuple(sentence_list))
+
+        sentence = And({w, l, Or(tuple(var))})
+
+        print(sentence)
+
+        if killer == sus_killer:
+            temp[killer] = True
+        if weapon == sus_weapon:
+            temp['w'] = True
+        if location == sus_location:
+            temp['l'] = True
+
+        return sentence.satisfied_by(temp)
+
+    def print_sentence(self, sentence):
+        if type(sentence) == Var:
+            return str(sentence)
+
+        string = "("
+        string += sentence.children[0]
+
+        if type(sentence) == And:
+            for child in sentence[1:]:
+                string += ' & {}'.format(child)
+        elif type(sentence) == Or:
+            for child in sentence[1:]:
+                string += ' | {}'.format(child)
+
+        string += ')'
+
+        return string
+
+    def result(self):
+        if self.check_correct():
+            return "You got the killer!"
+        else:
+            return "The killer got away!"
+
     def init_cards(self, file_name):
         """
         Initializes all cards from the card file.
@@ -285,8 +370,12 @@ class New_Game:
         """
         print("-" * 70)
 
+
         # If title card
         if card.text != []:
+            if card.text[0] == "$result$":
+                card.text[0] = self.result()
+
             if card.text[0] != "":
                 if card.text[0][0] == '[':
                     print('\n' * 2)
@@ -297,6 +386,7 @@ class New_Game:
                         print(space + text)
                     print('\n')
                     return
+
 
         # Print normal text
         whole = ""
