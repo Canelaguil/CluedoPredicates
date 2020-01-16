@@ -179,7 +179,6 @@ class New_Game:
         Generates a random Cluedo scenario.
         """
         chars = list(self.characters.keys())
-        print(chars)
         chars.remove('weapon')
         chars.remove('location')
 
@@ -192,6 +191,8 @@ class New_Game:
 
     def check_correct(self):
         var = []
+        killer = ""
+        sus_killer = ""
         chars = list(self.characters.keys())
         sentence_vals = {x: False for x in chars}
 
@@ -201,15 +202,15 @@ class New_Game:
         for char in chars:
             var.append(Var(char))
 
-        weapon = self.characters['weapon'].goals['murderweapon']
-        sus_weapon = self.characters['weapon'].goals['suspectedweapon']
-        location = self.characters['location'].goals['murderlocation']
-        sus_location = self.characters['location'].goals['suspectedlocation']
+        weapon = self.characters['weapon'].goals['murderweapon'].points
+        sus_weapon = self.characters['weapon'].goals['suspectedweapon'].points
+        location = self.characters['location'].goals['murderlocation'].points
+        sus_location = self.characters['location'].goals['suspectedlocation'].points
 
         for char in chars:
-            if self.characters[char].goals['issuspect'] == 1:
+            if self.characters[char].goals['issuspect'].points == 1:
                 sus_killer = char
-            if self.characters[char].goals['iskiller'] == 1:
+            if self.characters[char].goals['iskiller'].points == 1:
                 killer = char
 
         w = Var('weapon')
@@ -220,16 +221,17 @@ class New_Game:
 
         sentence = And({w, l, Or(tuple(var))})
 
-        print(sentence)
-
         if killer == sus_killer:
-            temp[killer] = True
+            sentence_vals[killer] = True
         if weapon == sus_weapon:
-            temp['w'] = True
+            sentence_vals['w'] = True
         if location == sus_location:
-            temp['l'] = True
+            sentence_vals['l'] = True
 
-        return sentence.satisfied_by(temp)
+        sentence_vals['l'] = True
+        sentence_vals['w'] = True
+
+        return sentence.satisfied_by(sentence_vals)
 
     def print_sentence(self, sentence):
         if type(sentence) == Var:
@@ -457,18 +459,25 @@ class New_Game:
         """
         # ! you spartan 5 1 10
         for condition in switch.condition:
-            c=condition.split(" ")
-            first_c=c[0]
+            c = condition.split(" ")
+            first_c = c[0]
+
             if first_c == '!':
-                obj=self.characters[c[1]]
-                goal_list=getattr(obj, "goals", "error")
-                p=int(goal_list[c[2]].points)
+                obj = self.characters[c[1]]
+
+                goal_list = getattr(obj, "goals", "error")
+
+                p = int(goal_list[c[2]].points)
+
                 if p > int(c[3]):
                     return int(c[4]), int(c[5])
             elif first_c == '#':
                 obj=self.characters[c[1]]
+
                 atr=c[2]
+
                 cur_value=getattr(obj, atr, "error")
+
                 if cur_value == c[3]:
                     return int(c[4]), int(c[5])
 
