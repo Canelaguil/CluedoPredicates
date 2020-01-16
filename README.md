@@ -1,5 +1,5 @@
-# Jaqcards
-Jaqcards is an interpeter for text-based choose-your-own-adventure storygames. The input files are in a straight-forward
+# CluedoPredicates
+CluedoPredicates is an interpeter for text-based choose-your-own-adventure storygames. The input files are in a straight-forward
 format that's easy for anyone to write, whether you're a programmer or not (it's comparable to Markdown, if that sounds familiar).
 
 Right now I'm working on a three-part story on the historical character of Alkybiades (loosely inspired by AC Odyssey) which
@@ -7,9 +7,9 @@ you can already play the first chapter of.
 
 ## For Players
 ### If you have python3 installed on your computer:
-Just clone or download this repository and run the Alkybiades game with this command:
+Just clone or download this repository and run the Cluedo game with this command:
 ```
-python3 init_game.py SnakeInTheGrass
+python3 init_game.py CLUEDO
 ```
 This will initialize all the right files listed in the SnakeInTheGrass file.
 ### If you don't have python3 installed on your computer:
@@ -36,7 +36,7 @@ you could have a switch that checks if the points for that goals are more than 6
 towards the player.
 
 ### Testing your story
-To make it easier to skip to the part of your story that you want to test there are a few commands you can type instead of typing enter when you go to the next card. Be aware that this isn't the case when Jaqcards is waiting for user input.
+To make it easier to skip to the part of your story that you want to test there are a few commands you can type instead of typing enter when you go to the next card. Be aware that this isn't the case when CluedoPredicates is waiting for user input.
 ```
 whereami - prints the index of the current card
 goto [index] - jumps to the specified index
