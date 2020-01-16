@@ -1,7 +1,7 @@
 """
 Date:           02/01/2020
 Made by:        Clara Martens Avila
-Description:    An intepreter that gets certain kinds of files as
+Description:    An interpreter that gets certain kinds of files as
                 input and runs them as a CLI-based Choose Your Own
                 Adventure Game.
 
@@ -186,9 +186,9 @@ class New_Game:
         killer = chars[random.randint(0, len(chars)-1)]
         print(killer)
 
-        self.characters[killer].goals['iskiller'] = 1
-        self.characters['weapon'].goals['murderweapon'] = random.randint(1,3)
-        self.characters['location'].goals['murderlocation'] = random.randint(1,3)
+        self.characters[killer].goals['iskiller'].points = 1
+        self.characters['weapon'].goals['murderweapon'].points = random.randint(1,3)
+        self.characters['location'].goals['murderlocation'].points = random.randint(1,3)
 
     def check_correct(self):
         var = []
@@ -427,7 +427,7 @@ class New_Game:
                 # ! you spartan 10
                 obj = self.characters[c[1]]
                 goal = c[2]
-                obj.goals[goal].points = c[3]
+                obj.goals[goal].points = int(c[3])
             elif first_c == '#':
                 # # you name Kassandra
                 obj = self.characters[c[1]]
