@@ -1,0 +1,100 @@
+Inside the house and in its surroundings, a few suspicious looking items have
+been collected that could have possibly killed Lord Black.
+All these items have been put on the kitchen table in order for you to inspect them.
+&
+
+As you walk over to the kitchen table, you see 3 items on the table and decide
+to carefully inspect them one at the time.
+- The first item that had been found, a long twisted rope, was found laying on the floor near the basement entrance.
+- The second item that could have been used to kill Lord Black was a broken vase. This vase was made out of porcelain and it's broken shards were found scattered around the living room where the vase originally was located.
+- The third suspicious item that had been found was a jar containing a poisonous fluid. As you lean over to pick up its scent out of curiosity, you almost start to throw up.
+&
+
+Which one of these items will you inspect first?
+* The long rope
+! weapon murderweapon 1
+ju 1
+* The broken vase
+! weapon murderweapon 0
+ju 5
+* The jar containing a poisonous fluid
+ju 9
+* I don't need to expect the items, I know which weapon was used.
+ju 14
+&
+
+You look over at the long rope.
+&
++
+! weapon murderweapon 1 1 2
+! weapon murderweapon 0 2 1
+++ 2
+% ROPE
+% Guilty:
+- You: This rope looks quite new. However it has been used at least once before.
+- Ms. I. White: That could be very true you know. Until a few days ago, I had never seen this rope on the house before. It must've been bought it very recently.
+- You: Hmm, I wonder if that is a coincidence or not...
+&
+% Not guilty:
+- You: This rope sure looks damaged. This must've been used at least a dozen times.
+- Ms. I. White: Oh, yes indeed. If I know one thing, its that Lord Black would often take this rope with him to his bedroom at night. However, I have no idea what he would use it for.
+- You: Well, since the rope still has a few loops in it, this rope sure looks like it could have been used to strangle him to death.
+&
+
+
+&
+
+You look over at the broken vase.
+&
++
+! weapon murderweapon 1 1 6
+! weapon murderweapon 0 2 5
+++ 2
+% VASE
+% Guilty:
+- You: This vase looks very suspicious to say the least.
+- Ms. I. White: Well, you know… Lord Black has a cat that loves to hop on every shelf in this house. Maybe it was the cat that pushed over the vase. This isn't the vase that clumsy cat has destroyed.
+- You: I get what you're saying, but looking at the amount of shards I feel like there was more force than just gravity into play.
+&
+% Not guilty:
+- You: Hmm. I bet that if you use the right amount of force, a vase like this could definitely kill you if you're hit in the back of the head.
+- Ms. I. White: You do have a point inspector, however, this is not the first time a broken vase was found around the house. Lord Black's cat loves to jump on the shelves and push over all sorts of objects. This is the 3rd vase in about 2 months time.
+- You: Do you really have time to keep track of such statistics?
+- Ms. I. White: Well, of course! I mean, I'm the one who has to clean up all the mess every time.
+- You: Right.
+&
+
+You look over at the jar containing poisonous fluid.
+&
++
+! weapon murderweapon 1 1 2
+! weapon murderweapon 0 2 1
+++ 2
+% Poison
+% Guilty:
+- Ms. I. White: Inspector, I found this jar myself, so if you start looking at fingerprints don't suspect me please!
+- You: Hmm… And where did you find this exactly?
+- Ms. I. White: I was cleaning the kitchen when I smelled this really bad scent. When I started looking for where this scent could've come from, I found this jar at the very bottom of the trash can in the kitchen. It was near empty when I found it.
+- You: Near empty you said? Who in their right mind would even use this in the first place?
+- Ms. I. White: Well, a few weeks ago there was a rat plague in this house. Thus, this poisonous fluid was used to get rid of the plague. It proved to be very effective!
+- You: Maybe too effective… It could've been used to get rid of something, or should I say someone, as well.
+&
+% Not guilty:
+- You: Ugh, what is this smell?
+- Ms. I. White: This jar contains a poisonous fluid which was used to get rid of a rat plague we had a few weeks ago.
+- You: I see, well there must've been a whole lot of rats then, since about a fourth of this jar is already empty.
+- Ms. I. White: Oh inspector, you don't even wanna know. It was horrible. I'm scared of those filthy animals you know, it was like hell.
+- You: I know the missing amount of poison can take care of a few rats. I wonder however if this is enough poison to kill a human also.
+&
+
+Which weapon do you think was used to kill Lord Black?
+* The long rope
+! weapon suspectedweapon 1
+ju 1
+* The broken vase
+! weapon suspectedweapon 2
+ju 1
+* The jar containing poisonous fluid
+! weapon suspectedweapon 3
+ju 1
+&
