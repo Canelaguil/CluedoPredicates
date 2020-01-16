@@ -10,12 +10,10 @@ to carefully inspect them one at the time.
 - The third suspicious item that had been found was a jar containing a poisonous fluid. As you lean over to pick up its scent out of curiosity, you almost start to throw up.
 &
 
-Which one of these items will you inspect first?
+Which one of these items will you inspect?
 * The long rope
-! weapon murderweapon 1
 ju 1
 * The broken vase
-! weapon murderweapon 0
 ju 5
 * The jar containing a poisonous fluid
 ju 9
@@ -26,8 +24,9 @@ ju 14
 You look over at the long rope.
 &
 +
-! weapon murderweapon 1 1 2
-! weapon murderweapon 0 2 1
+! weapon murderweapon 2 2 9
+! weapon murderweapon 1 2 9
+! weapon murderweapon 0 1 10
 ++ 2
 % ROPE
 % Guilty:
@@ -41,12 +40,10 @@ You look over at the long rope.
 - You: Well, since the rope still has a few loops in it, this rope sure looks like it could have been used to strangle him to death.
 &
 
-
-&
-
 You look over at the broken vase.
 &
 +
+! weapon murderweapon 2 2 5
 ! weapon murderweapon 1 1 6
 ! weapon murderweapon 0 2 5
 ++ 2
@@ -67,7 +64,8 @@ You look over at the broken vase.
 You look over at the jar containing poisonous fluid.
 &
 +
-! weapon murderweapon 1 1 2
+! weapon murderweapon 2 1 2
+! weapon murderweapon 1 2 1
 ! weapon murderweapon 0 2 1
 ++ 2
 % Poison
@@ -85,6 +83,13 @@ You look over at the jar containing poisonous fluid.
 - You: I see, well there must've been a whole lot of rats then, since about a fourth of this jar is already empty.
 - Ms. I. White: Oh inspector, you don't even wanna know. It was horrible. I'm scared of those filthy animals you know, it was like hell.
 - You: I know the missing amount of poison can take care of a few rats. I wonder however if this is enough poison to kill a human also.
+&
+
+Do you know which weapon was used to kill Lord Black?
+* Yes
+ju 1
+* No, let me inspect the items some more.
+ju -13
 &
 
 Which weapon do you think was used to kill Lord Black?
