@@ -1,7 +1,10 @@
 # CluedoPredicates
 ## How to play
 Just type this in your console. Make sure you have Python 3 installed!
+
 ```python3 init_game.py CLUEDO```
+
+This game also requires you to install the NNF module it's all about, check out how to do that here: https://python-nnf.readthedocs.io/en/stable/.
 ## What it was all about
 So... what was that all about? Well, you just worked with what we call the Negation Normal Form. The Negation Normal Form, 
 abbreviated to NNF, is a form of a logic sentence in with predicate logic. You thought you just solved (or didn't solve)
