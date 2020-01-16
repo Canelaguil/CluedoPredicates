@@ -2,6 +2,7 @@
 ## How to play
 Just type this in your console. Make sure you have Python 3 installed!
 ```python3 init_game.py CLUEDO```
+## What it was all about
 So... what was that all about? Well, you just worked with what we call the Negation Normal Form. The Negation Normal Form, 
 abbreviated to NNF, is a form of a logic sentence in with predicate logic. You thought you just solved (or didn't solve)
 a murder mistery, but what you actually did was set values to True and False. 
