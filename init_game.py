@@ -1,9 +1,13 @@
 """
+Name:           JaqCards - The Cluedo edition
 Date:           02/01/2020
-Made by:        Clara Martens Avila
+Made by:        Original made by Clara Martens Avila, cluedo version
+                by Felix Atsma
 Description:    An interpreter that gets certain kinds of files as
                 input and runs them as a CLI-based Choose Your Own
-                Adventure Game.
+                Adventure Game. NNF functionalities added for the 
+                cluedo version by Felix Atsma. Cluedo story written 
+                and developed by Clara Martens Avila and Noah Sriram.
 
 """
 
@@ -181,9 +185,9 @@ class New_Game:
         self.characters['weapon'].goals['murderweapon'].points = random.randint(1,3)
         self.characters['location'].goals['murderlocation'].points = random.randint(1,3)
 
-        print("DEBUG Killer is {}".format(killer))
-        print("DEBUG Weapon is {}".format(self.characters['weapon'].goals['murderweapon'].points))
-        print("DEBUG Location is {}".format(self.characters['location'].goals['murderlocation'].points))
+        # print("DEBUG Killer is {}".format(killer))
+        # print("DEBUG Weapon is {}".format(self.characters['weapon'].goals['murderweapon'].points))
+        # print("DEBUG Location is {}".format(self.characters['location'].goals['murderlocation'].points))
 
     def check_correct(self):
         var = []
