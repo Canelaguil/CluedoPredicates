@@ -13,7 +13,6 @@ import signal
 import os.path
 import textwrap
 import random
-import nnf
 from nnf import Var, Or, And
 
 
@@ -183,11 +182,13 @@ class New_Game:
         chars.remove('location')
 
         killer = chars[random.randint(0, len(chars)-1)]
-        print(killer)
 
         self.characters[killer].goals['iskiller'].points = 1
         self.characters['weapon'].goals['murderweapon'].points = random.randint(1,3)
         self.characters['location'].goals['murderlocation'].points = random.randint(1,3)
+
+        print("DEBUG Killer is {}".format(killer))
+        print("DEBUG Weapon is {}".format(self.characters['weapon'].goals['murderweapon'].points))
 
     def check_correct(self):
         var = []
@@ -216,36 +217,32 @@ class New_Game:
         w = Var('weapon')
         l = Var('location')
 
-        #sentence_list = [And({v, w, l}) for v in var]
-        #sentence = Or(tuple(sentence_list))
-
         sentence = And({w, l, Or(tuple(var))})
 
         if killer == sus_killer:
             sentence_vals[killer] = True
         if weapon == sus_weapon:
-            sentence_vals['w'] = True
+            sentence_vals['weapon'] = True
         if location == sus_location:
-            sentence_vals['l'] = True
-
-        sentence_vals['l'] = True
-        sentence_vals['w'] = True
+            sentence_vals['location'] = True
 
         return sentence.satisfied_by(sentence_vals)
 
-    def print_sentence(self, sentence):
+    def format_sentence(self, sentence):
+        """
+        Formats a sentence in python-nnf format to regular notation.
+        """
         if type(sentence) == Var:
             return str(sentence)
 
-        string = "("
-        string += sentence.children[0]
+        string = "({}".format(self.format_sentence(list(sentence.children)[0]))
 
         if type(sentence) == And:
-            for child in sentence[1:]:
-                string += ' & {}'.format(child)
+            for child in list(sentence.children)[1:]:
+                string += ' ∧ {}'.format(self.format_sentence(child))
         elif type(sentence) == Or:
-            for child in sentence[1:]:
-                string += ' | {}'.format(child)
+            for child in list(sentence.children)[1:]:
+                string += ' ∨ {}'.format(self.format_sentence(child))
 
         string += ')'
 
