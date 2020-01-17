@@ -2,13 +2,12 @@
 Name:           JaqCards - The Cluedo edition
 Date:           02/01/2020
 Made by:        Original made by Clara Martens Avila, cluedo version
-                by Felix Atsma
+                by Felix Atsma. NNF module by Jan Verbeek.
 Description:    An interpreter that gets certain kinds of files as
                 input and runs them as a CLI-based Choose Your Own
                 Adventure Game. NNF functionalities added for the 
                 cluedo version by Felix Atsma. Cluedo story written 
                 and developed by Clara Martens Avila and Noah Sriram.
-
 """
 
 from classes import *
@@ -17,7 +16,12 @@ import signal
 import os.path
 import textwrap
 import random
-from nnf import Var, Or, And
+try:
+    from nnf import Var, Or, And
+except:
+    print("You have to install the Python nnf module to play this game.")
+    print("Just type 'pip3 install nnf' in your console and try again.")
+    sys.exit()
 
 
 def sanitize(string):
@@ -77,8 +81,8 @@ class New_Game:
                     print(sanitize(line))
             sys.exit()
 
-        if len(sys.argv) is not 4:
-            if len(sys.argv) is 2:
+        if len(sys.argv) != 4:
+            if len(sys.argv) == 2:
                 if os.path.isfile(sys.argv[1]):
                     gamefile = open(sys.argv[1])
                     f_line = True
