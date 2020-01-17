@@ -2,7 +2,7 @@
 [ What was it all about?
 &
 So... what was that all about? Well, you just worked with what we call the Negation Normal Form. The Negation Normal Form, 
-abbreviated to NNF, is a form of a logic sentence in with predicate logic. You thought you just solved (or didn't solve)
+abbreviated to NNF, is a form of a logic sentence within predicate logic, utilizing only conjunctions, disjunctions and negations on variables. You thought you just solved (or didn't solve)
 a murder mistery, but what you actually did was set values to True and False. 
 &
 Did Miss Scarlet commit the murder? Did Reverend
@@ -17,9 +17,24 @@ automatas in discrete mathematics to even the very core of a computer: 1s and 0s
 Well, we used a library that one Jan Verbeek created in his bachelor thesis, a Python libary made especially to easily handle
 these kind of predicate sentences. Check it out on https://scripties.uba.uva.nl/search?id=691650.
 &
-One of his use cases makes you pick people over each other, eventually generating a predicate sentence. That's what we departed from for this game.
+In his paper he describes the construction of a python package with features including: creating sentences, simplifying them, visualizing them, checking satisfiability of sentences, retrieving all possible truth values, and others.
 &
-And the result is your very own randomly generated murder mistery story. Did you get it right? 
+A package like this makes it very easy to work with logical sentences in NNF.
+Other researchers in this field could speed up their work by being able to
+test sentences and not having to do everything by hand.
+&
+Jan’s thesis is a rather practical one. Instead of introducing a new concept or continuing existing theoretical ideas, he takes the concepts of NNF and builds a practical solution of working with them.
+&
+The main challenges in achieving this were how to represent the sentences, and implementing the algorithms for various operations, like simplification and serialization.
+&
+He represents sentences not with a seperate class, but by the top level operator. For example a sentence (A & B) || (A & C) would be represented as Or( And(A, B), And(A, C) ). This approach gives simplicity, modularity and allows for parts of a sentence to be treated as sentences as well, with all the functionality a sentence possesses.
+&
+Practical applications like this are essential in furthering the progress in Computer Science research as a whole. They enable other researchers to do their work easier and/or faster, and keep the field as a whole grounded in reality, ultimately furthering the progress of technology itself.
+&
+The inspiration for the little game you played through earlier was one of Jan’s use cases were you create a linear order of preference for a list of people, eg. Alice > Bob, which can be represented using a predicate sentence. That's what we departed from for this game.
+&
+And the result is your very own randomly generated murder mystery story. Did you get it right? 
 &
 [ THE END
 &
+
