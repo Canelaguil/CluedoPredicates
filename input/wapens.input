@@ -1,6 +1,3 @@
-[ CHAPTER 1
-[ How was it done?
-&
 Inside the house and in its surroundings, a few suspicious looking items have
 been collected that could have possibly killed Lord Black.
 All these items have been put on the kitchen table in order for you to inspect them.
@@ -53,8 +50,8 @@ You look over at the broken vase.
 % VASE
 % Guilty:
 - You: This vase looks very suspicious to say the least.
-- Ms. I. White: Well, you know… Lord Black has a cat that loves to hop on every shelf in this house. Maybe it was the cat that pushed over the vase. This isn't the vase that clumsy cat has destroyed.
-- You: I get what you're saying, but looking at the amount of shards I feel like there was more force than just gravity into play.
+- Ms. I. White: Well, you know… Lord Black has a cat that loves to hop on every shelf in this house. Maybe it was the cat that pushed over the vase. This isn't the first vase that clumsy cat has destroyed.
+- You: I get what you're saying, but looking at the amount of shards, I feel like there was more force into play than just gravity.
 &
 % Not guilty:
 - You: Hmm. I bet that if you use the right amount of force, a vase like this could definitely kill you if you're hit in the back of the head.
@@ -85,7 +82,7 @@ You look over at the jar containing poisonous fluid.
 - Ms. I. White: This jar contains a poisonous fluid which was used to get rid of a rat plague we had a few weeks ago.
 - You: I see, well there must've been a whole lot of rats then, since about a fourth of this jar is already empty.
 - Ms. I. White: Oh inspector, you don't even wanna know. It was horrible. I'm scared of those filthy animals you know, it was like hell.
-- You: I know the missing amount of poison can take care of a few rats. I wonder however if this is enough poison to kill a human also.
+- You: I know the missing amount of poison can take care of a few rats. I wonder however, if this is amount enough poison to kill a human also.
 &
 
 Do you know which weapon was used to kill Lord Black?

@@ -1,0 +1,113 @@
+Lord Black's body was found in a small pond near the garden.
+Vague drag traces were left behind near the pond, meaning Lord Black was
+most likely not killed outside, but somewhere close by.
+&
+
+There are only 3 spots where Lord Black could have been
+killed without anyone noticing.
+- The atelier in the garden.
+- Inside the house itself.
+- The church adjacent to the garden.
+
+You will now visit these spots in order to investigate the crime scene.
+&
+
+Which spot will you investigate?
+* The atelier in the garden
+ju 1
+* Inside the house itself
+ju 5
+* The church adjacent to the garden
+ju 9
+* I don't need to investigate the locations, I know where he was killed.
+ju 14
+&
+
+You go investigate the atelier.
+&
++
+! location murderlocation 2 2 9
+! location murderlocation 1 2 9
+! location murderlocation 0 1 10
+++ 2
+% ATELIER
+% Guilty:
+- Ms. I. White: Lord Black is the only one that has access to the atelier along after 17:00. That's when the atelier closes.
+- You: Did he have a reason to go there after closing time at all?
+- Ms. I. White: Well, yes actually. He would often show around guests or friends in his free time. He was very passionate about all the art in here.
+- You: Okay, very well. There is definitely a possibility that he was killed here when no one was around.
+&
+% Not guilty:
+- You: Did Lord Black spend a lot of time in the atelier?
+- Ms. I. White: Not really to be honest. As far as I'm concerned, he only has this atelier to show off and to make money off of it.
+- You: So he barely even goes there if I am correct?
+- Ms. I. White: Well, no. He does visit it quite a bit. However, he is not actually there to worship the art.
+&
+
+You go investigate inside the house.
+&
++
+! location murderlocation 2 2 5
+! location murderlocation 1 1 6
+! location murderlocation 0 2 5
+++ 2
+% HOUSE
+% Guilty:
+- You: Besides Lord Black, who else lives here?
+- Ms. I. White: Only Lord Black, and his young daughter.
+- You: So am I correct to assume that Lord Black is often home alone when his daughter is at school?
+- Ms. I. White: Yes indeed inspector, when she is at school, unless he has visitors, he is the only one in the house along with me.
+- You: So then, where were you when the murder happened?
+- Ms. I. White: I was outside taking care of the garden.
+&
+% Not guilty:
+- You: Besides Lord Black, who else lives here?
+- Ms. I. White: Only Lord Black, and his young daughter.
+- You: So am I correct to assume that Lord Black is often home alone when his daughter is at school?
+- Ms. I. White: Yes indeed inspector, when she is at school, unless he has visitors, he is the only one in the house along with me.
+- You: So then, where were you when the murder happened?
+- Ms. I. White: I was actually inside as well. I mean, I am getting older but even though I was on the other side of the mansion, I do believe I would've heard some suspicious sounds if the murder took place here.
+- You: Very well...
+&
+
+You go investigate the church.
+&
++
+! location murderlocation 2 1 2
+! location murderlocation 1 2 1
+! location murderlocation 0 2 1
+++ 2
+% CHURCH
+% Guilty:
+- You: Ms. I. White, I have a question for you.
+- Ms. I. White: Yes inspector, what's the matter?
+- You: I wonder how frequently, Lord Black went to the church, do you know that perhaps?
+- Ms. I. White: He would usually go 3 days a week. However, I have noticed that for the past week, he's been staying there longer than he normally does.
+- You: Ah, right. So he was quite the religious guy wasn't he?
+- Ms. I. White: Yes indeed. He is often one of the last few people to leave the church. So by the time he leaves, it is often quite uneventful in there.
+&
+% Not guilty:
+- You: Ms. I. White, I have a question for you.
+- Ms. I. White: Yes inspector, what's the matter?
+- You: Would Lord Black visit the church often or not?
+- Ms. I. White: He would visit church from time to time, however, he wouldn't spend a lot of time in there. When he was there he was usually there to accompany his grandchildren.
+&
+
+Do you know at which location Lord Black was killed?
+* Yes
+ju 1
+* No, let me investigate the locations some more.
+ju -13
+&
+
+At which location do you think Lord Black was killed?
+* The atelier in the garden
+! location suspectedlocation 1
+ju 1
+* Inside the house itself
+! location suspectedlocation 2
+ju 1
+* The church adjacent to the garden
+! location suspectedlocation 3
+ju 1
+&
