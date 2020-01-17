@@ -1,6 +1,10 @@
+[ CHAPTER 2
+[ Where did it happen?
+&
 Lord Black's body was found in a small pond near the garden.
 Vague drag traces were left behind near the pond, meaning Lord Black was
-most likely not killed outside, but somewhere close by.
+most likely not killed outside, but somewhere close by. You know all three suspects claimed to be in one of the three locations surrounding the garden at the time of the murder,
+but as they're all so close to each other you can't guarantee the location of any of them.
 &
 
 There are only 3 spots where Lord Black could have been
@@ -23,7 +27,7 @@ ju 9
 ju 14
 &
 
-You go investigate the atelier.
+Mrs. White takes you to the atelier in the garden.
 &
 +
 ! location murderlocation 2 2 9
@@ -32,16 +36,16 @@ You go investigate the atelier.
 ++ 2
 % ATELIER
 % Guilty:
-- Ms. I. White: Lord Black is the only one that has access to the atelier along after 17:00. That's when the atelier closes.
-- You: Did he have a reason to go there after closing time at all?
-- Ms. I. White: Well, yes actually. He would often show around guests or friends in his free time. He was very passionate about all the art in here.
-- You: Okay, very well. There is definitely a possibility that he was killed here when no one was around.
+- Mrs. White: Lord Black is the only one that has access to the atelier after 17:00. That's when the atelier closes.
+- You: Did he have a reason to go there after closing time?
+- Mrs. White: Well, yes actually. He would often show around guests or friends in his free time. He was very passionate about all the art in here. In fact I think I heard him mention wanting to give someone a tour last week...
+- You: Okay, very well. So he might have been guiding around someone he knewe.
 &
 % Not guilty:
 - You: Did Lord Black spend a lot of time in the atelier?
-- Ms. I. White: Not really to be honest. As far as I'm concerned, he only has this atelier to show off and to make money off of it.
+- Mrs. White: Not really to be honest. As far as I'm concerned, he only has this atelier to show off and to make money off of it. It belongs to Ms. Scarlet most of the time.
 - You: So he barely even goes there if I am correct?
-- Ms. I. White: Well, no. He does visit it quite a bit. However, he is not actually there to worship the art.
+- Mrs. White: Why would he? He let Ms. Scarlet work there for a reason.
 &
 
 You go investigate inside the house.
@@ -54,23 +58,22 @@ You go investigate inside the house.
 % HOUSE
 % Guilty:
 - You: Besides Lord Black, who else lives here?
-- Ms. I. White: Only Lord Black, and his young daughter.
-- You: So am I correct to assume that Lord Black is often home alone when his daughter is at school?
-- Ms. I. White: Yes indeed inspector, when she is at school, unless he has visitors, he is the only one in the house along with me.
-- You: So then, where were you when the murder happened?
-- Ms. I. White: I was outside taking care of the garden.
+- Mrs. White: Only Lord Black, but his cousin Colonel Mustard is staying with him for a while.
+- You: Colonel Mustard claims to have been at the church at the time of the murder.
+- Mrs. White: Yes, and I was doing groceries in the village. The grocery clerk confirmed that, right?
+- You: Yes. What did Lord Black usually do when he was alone? 
+- Mrs. White: Well, work Sir. I see no reason why he would have been anywhere but in his study. 
 &
 % Not guilty:
 - You: Besides Lord Black, who else lives here?
-- Ms. I. White: Only Lord Black, and his young daughter.
-- You: So am I correct to assume that Lord Black is often home alone when his daughter is at school?
-- Ms. I. White: Yes indeed inspector, when she is at school, unless he has visitors, he is the only one in the house along with me.
-- You: So then, where were you when the murder happened?
-- Ms. I. White: I was actually inside as well. I mean, I am getting older but even though I was on the other side of the mansion, I do believe I would've heard some suspicious sounds if the murder took place here.
-- You: Very well...
+- Mrs. White: Only Lord Black, but his cousin Colonel Mustard is staying with him for a while.
+- You: Colonel Mustard claims to have been at the church at the time of the murder. Where were you again?
+- Mrs. White: Upstairs, cleaning. I assumed Lord Black would've gone to his office in town.
+- You: He was not in the house you mean?
+- Mrs. White: No, as far as I know not. Of course he might have been downstairs...
 &
 
-You go investigate the church.
+You cross the garden to visit the church.
 &
 +
 ! location murderlocation 2 1 2
@@ -79,18 +82,19 @@ You go investigate the church.
 ++ 2
 % CHURCH
 % Guilty:
-- You: Ms. I. White, I have a question for you.
-- Ms. I. White: Yes inspector, what's the matter?
-- You: I wonder how frequently, Lord Black went to the church, do you know that perhaps?
-- Ms. I. White: He would usually go 3 days a week. However, I have noticed that for the past week, he's been staying there longer than he normally does.
-- You: Ah, right. So he was quite the religious guy wasn't he?
-- Ms. I. White: Yes indeed. He is often one of the last few people to leave the church. So by the time he leaves, it is often quite uneventful in there.
+- You: Mrs. White, I have a question for you.
+- Mrs. White: Yes inspector, what's the matter?
+- You: How often did Lord Black go to church?
+- Mrs. White: He used to go three times a week, but lately he's hasn't been going. He had a fight with Reverend Green. 
+- You: Interesting...
+- Mrs. White: He did mention wanting to go over and mend things over a week ago. In fact, he might have planned to do that the day of the murder...
 &
 % Not guilty:
-- You: Ms. I. White, I have a question for you.
-- Ms. I. White: Yes inspector, what's the matter?
-- You: Would Lord Black visit the church often or not?
-- Ms. I. White: He would visit church from time to time, however, he wouldn't spend a lot of time in there. When he was there he was usually there to accompany his grandchildren.
+- You: Mrs. White, I have a question for you.
+- Mrs. White: Yes inspector, what's the matter?
+- You: How often did Lord Black go to church?
+- Mrs. White: He used to go three times a week, but lately he's hasn't been going. He had a fight with Reverend Green. 
+- You: Interesting...
 &
 
 Do you know at which location Lord Black was killed?
