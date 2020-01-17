@@ -105,11 +105,9 @@ class New_Game:
                     "{} was not recognized as file. Please try again with a correct filepath.".format(file))
                 sys.exit()
 
-        print("Hold on while we load your game...")
         characters = files[0]
         goals = files[1]
         self.chapter_files = files[2:]
-        print("... found {} chapters...".format(len(self.chapter_files)))
         return characters, goals
 
     def init_characters(self, file_name):
@@ -135,8 +133,6 @@ class New_Game:
             print(
                 "Something went wrong. Please check your character file before trying again.")
             sys.exit()
-
-        print("... succesfully loaded {} characters...".format(len(self.characters)))
 
     def init_goals(self, file_name):
         """
@@ -171,8 +167,6 @@ class New_Game:
                 "Something went wrong. Please check your goal file before trying again.")
             sys.exit()
 
-        print("... succesfully loaded {} goals...".format(no_goals))
-
     def gen_scenario(self):
         """
         Generates a random Cluedo scenario.
@@ -189,11 +183,11 @@ class New_Game:
 
         print("DEBUG Killer is {}".format(killer))
         print("DEBUG Weapon is {}".format(self.characters['weapon'].goals['murderweapon'].points))
+        print("DEBUG Location is {}".format(self.characters['location'].goals['murderlocation'].points))
 
     def check_correct(self):
         var = []
-        killer = ""
-        sus_killer = ""
+        ret_string = ""
         chars = list(self.characters.keys())
         sentence_vals = {x: False for x in chars}
 
@@ -221,12 +215,28 @@ class New_Game:
 
         if killer == sus_killer:
             sentence_vals[killer] = True
+            ret_string += "You got the killer!\n"
+        else:
+            ret_string += "The killer got away!\n"
+
         if weapon == sus_weapon:
             sentence_vals['weapon'] = True
+            ret_string += "You correctly identified the weapon!\n"
+        else:
+            ret_string += "You didn't identify the murder weapon correctly.\n"
+
         if location == sus_location:
             sentence_vals['location'] = True
+            ret_string += "You deduced the correct location!\n\n"
+        else:
+            ret_string += "The murder took place in another location.\n\n"
 
-        return sentence.satisfied_by(sentence_vals)
+        if sentence.satisfied_by(sentence_vals):
+            ret_string += "Congratulations, you solved the mystery!\n"
+        else:
+            ret_string += "Unfortunately, you didn't solve the mystery completely.\n"
+
+        return ret_string
 
     def format_sentence(self, sentence):
         """
@@ -313,8 +323,6 @@ class New_Game:
                 "Something went wrong. Please check your card file before trying again.")
             sys.exit()
 
-        print("... succesfully loaded {} cards for this chapter...".format(self.no_cards))
-
     def ask_input(self, options):
         """
         Generates a loop till the user gives correct input.
@@ -373,7 +381,8 @@ class New_Game:
         # If title card
         if card.text != []:
             if card.text[0] == "$result$":
-                card.text[0] = self.result()
+                print(self.check_correct())
+                return
 
             if card.text[0] != "":
                 if card.text[0][0] == '[':
