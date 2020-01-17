@@ -17,6 +17,8 @@ automatas in discrete mathematics to even the very core of a computer: 1s and 0s
 Well, we used a library that one Jan Verbeek created in his bachelor thesis, a Python libary made especially to easily handle
 these kind of predicate sentences. Check it out on https://scripties.uba.uva.nl/search?id=691650.
 &
+One of his use cases makes you pick people over each other, eventually generating a predicate sentence. That's what we departed from.
+&
 And the result is your very own randomly generated murder mistery story. Did you get it right? 
 &
 [ THE END
